@@ -19,7 +19,14 @@ while True:
         print('Erro na captura')
         break
 
+    frameTonsCinza = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+
+    frameContornos = cv.Canny(frameTonsCinza, 100, 200)
+    
     cv.imshow('Captured Image', frame)
+    cv.imshow('Captured Image', frameTonsCinza)
+    cv.imshow('Captured Image', frameContornos)
+    
 
     if cv.waitKey(1) == ord('q'):
         break
